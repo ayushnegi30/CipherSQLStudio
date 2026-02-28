@@ -1,0 +1,39 @@
+@use "./variables" as *;
+
+// Card style
+@mixin card {
+  background: $card-bg;
+  border-radius: $border-radius;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+  transition: $transition;
+}
+
+// Hover lift effect
+@mixin hover-lift {
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  }
+}
+
+// Primary button
+@mixin button-primary {
+  padding: 8px 16px;
+  background: $accent-blue;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.2s;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background: #2563eb;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
