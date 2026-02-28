@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3000/api";
+const API_BASE = "https://ciphersqlstudio-8ac2.onrender.com/";
 
 /* =========================
    AUTH APIs
