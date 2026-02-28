@@ -1,48 +1,83 @@
-📘 CipherSQLStudio
+🚀 CipherSQLStudio
+📘 Browser-Based SQL Learning Platform
 
-CipherSQLStudio is a browser-based SQL learning platform that allows users to practice SQL queries against pre-configured assignments with real-time execution and intelligent LLM-powered hints.
+CipherSQLStudio is a browser-based SQL practice platform that allows users to solve pre-configured SQL assignments with real-time query execution and LLM-powered intelligent hints.
 
-This project focuses on building a structured SQL practice experience — not a database creation tool. Assignments and sample data are pre-configured and stored in the system.
+Unlike traditional database tools, this project focuses on structured SQL learning, where assignments and datasets are pre-defined inside the system.
 
-🚀 Features
-✅ Core Features
+🌟 Project Overview
+
+CipherSQLStudio provides a guided environment where users can:
+
+Practice SQL queries safely
+
+Execute queries in real time
+
+Receive intelligent conceptual hints
+
+Learn SQL through structured assignments
+
+The system combines React + Express + PostgreSQL + MongoDB + Google Gemini API to deliver an interactive learning experience.
+
+✨ Features
+🧩 Core Features
 1️⃣ Assignment Listing Page
 
 Displays all available SQL assignments
 
-Shows difficulty level, title, and description
+Shows:
+
+Difficulty level
+
+Title
+
+Description
 
 Allows users to select and attempt assignments
 
 2️⃣ Assignment Attempt Interface
 
-Question panel with assignment requirements
+Question panel with requirements
 
-Sample data viewer (schema + preview data)
+Sample data viewer (schema + preview)
 
 Monaco-based SQL editor
 
 Real-time query execution
 
-Intelligent hint generation using Google Gemini API
+LLM-powered intelligent hints
 
-Results panel displaying formatted output or errors
+Results panel with formatted output or errors
 
 3️⃣ Query Execution Engine
 
-Executes SQL queries against PostgreSQL sandbox database
+Executes SQL queries on PostgreSQL sandbox
 
 Allows only SELECT queries
 
-Blocks unsafe SQL commands (INSERT, UPDATE, DELETE, DROP, etc.)
+Blocks unsafe commands:
 
-Returns structured results (columns + rows)
+INSERT
 
-Proper error handling and validation
+UPDATE
 
-🌟 Optional Features Implemented
+DELETE
 
-User authentication (Login / Signup)
+DROP
+
+ALTER
+
+Returns structured response:
+
+Columns
+
+Rows
+
+Proper validation & error handling
+
+⭐ Optional Features Implemented
+
+User Authentication (Login / Signup)
 
 JWT-based route protection
 
@@ -50,41 +85,43 @@ Track completed assignments per user
 
 🏗️ Architecture Overview
 
-The system follows a 3-layer architecture:
+CipherSQLStudio follows a 3-Layer Architecture:
 
 🟦 Frontend (React)
 
-Handles UI rendering
+UI rendering
 
-Manages application state
+State management
 
-Sends API requests
+API communication
 
-Displays query results and hints
+Displays results & hints
 
 🟩 Backend (Express)
 
-Handles routing and middleware
+API routing
 
-Performs query validation
+Middleware handling
 
-Executes SQL queries
+SQL query validation
 
-Integrates Gemini API for hints
+Query execution
+
+Gemini API integration
 
 🟨 Database Layer
 
-MongoDB → Stores users and assignments
+MongoDB → Users & Assignments
 
-PostgreSQL → SQL sandbox execution engine
+PostgreSQL → SQL sandbox execution
 
-Gemini API → Generates contextual hints
+Gemini API → Contextual hints
 
 🔄 Data Flow (Execute Query)
 
-User clicks "Execute Query"
+User clicks Execute Query
 
-Frontend sends POST /api/execute-query
+Frontend sends request → POST /api/execute-query
 
 JWT middleware validates user
 
@@ -92,7 +129,7 @@ Backend validates SQL query
 
 PostgreSQL executes query
 
-Backend formats result
+Backend formats results
 
 JSON response sent to frontend
 
@@ -102,30 +139,30 @@ Results panel re-renders
 
 🤖 LLM Hint Integration
 
-Uses Google Gemini API
+Powered by Google Gemini API
 
-Prompt engineered to:
+Prompt Engineering Rules:
 
-Provide conceptual hints only
+Provides conceptual hints only
 
-Prevent full solution leakage
+Prevents full solution leakage
 
-Avoid rewriting full SQL queries
+Avoids rewriting complete SQL queries
 
-Backend-controlled API integration
+Backend-controlled integration
 
 Secure API key stored in .env
 
 🛠️ Tech Stack
-Frontend
+🎨 Frontend
 
 React.js
 
-SCSS (Vanilla, mobile-first approach)
+SCSS (Vanilla, Mobile-First)
 
 Monaco Editor
 
-Backend
+⚙️ Backend
 
 Node.js
 
@@ -133,53 +170,55 @@ Express.js
 
 JWT Authentication
 
+🗄️ Database & Services
+
 PostgreSQL
 
-MongoDB (Atlas compatible)
+MongoDB (Atlas Compatible)
 
 Google Gemini API
 
-⚙️ Project Setup Instructions
-1️⃣ Clone the Repository
+⚙️ Project Setup
+1️⃣ Clone Repository
 git clone https://github.com/YOUR_USERNAME/CipherSQLStudio.git
 cd CipherSQLStudio
 2️⃣ Backend Setup
 cd backend
 npm install
 
-Create a .env file in the backend folder (see Environment Variables section below).
+Create a .env file inside backend/ (see Environment Variables below).
 
-Start the backend server:
+Start backend server:
 
 node server.js
 
-Backend will run on:
+Backend runs on:
 
 http://localhost:3000
 3️⃣ PostgreSQL Setup
 
 Make sure PostgreSQL is installed and running.
 
-Create the sandbox database:
+Create sandbox database:
 
 CREATE DATABASE ciphersql_sandbox;
 
-Run the seed file to insert sample tables and data:
+Run seed file:
 
 psql -U postgres -d ciphersql_sandbox -f db/seed.sql
 4️⃣ MongoDB Setup
 
 Use MongoDB Atlas or local MongoDB.
 
-Create a database for:
+Create collections for:
 
 Users
 
 Assignments
 
-Completed assignments tracking
+Completed Assignments
 
-Copy the connection string into your .env.
+Add connection string to .env.
 
 5️⃣ Frontend Setup
 cd frontend
@@ -189,11 +228,9 @@ npm run dev
 Frontend runs on:
 
 http://localhost:5173
-🔐 Environment Variables Needed
+🔐 Environment Variables
 
-Create a .env file inside the backend directory.
-
-Example:
+Create .env inside backend/
 
 PORT=3000
 
@@ -212,3 +249,12 @@ JWT_SECRET=your_jwt_secret_key
 
 # LLM Integration
 GEMINI_API_KEY=your_gemini_api_key
+📌 Security Considerations
+
+Only SELECT queries allowed
+
+SQL injection prevention through validation
+
+JWT-protected routes
+
+API keys secured via environment variables
