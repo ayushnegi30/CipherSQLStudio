@@ -1,4 +1,4 @@
-const API_BASE = "https://ciphersqlstudio-8ac2.onrender.com/";
+const API_BASE = "https://ciphersqlstudio-8ac2.onrender.com/api";
 
 /* =========================
    AUTH APIs
@@ -21,7 +21,7 @@ export const login = async (data) => {
     body: JSON.stringify(data),
   });
 
-  return res.json();
+  return res.json();x
 };
 
 /* =========================
